@@ -22,7 +22,7 @@ if __name__ == '__main__':
 
         # evaluate "os.getpid()" asynchronously
         res = pool.apply_async(os.getpid, ()) # runs in *only* one process
-        print(res.get(timeout=1))             # prints the PID of that process
+        print('PID:',res.get(timeout=1))             # prints the PID of that process
 
         # launching multiple evaluations asynchronously *may* use more processes
         multiple_results = [pool.apply_async(os.getpid, ()) for i in range(4)]
